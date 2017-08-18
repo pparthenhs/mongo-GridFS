@@ -8,7 +8,7 @@ import org.bson.types.ObjectId;
 
 /**
  * This class connect with the localhost mongo and with
- * the database 'myDatabase'. Use the GridFS to delete a existing
+ * the database myDatabase. Use the GridFS to delete a existing
  * file using file id.
  *
  *
@@ -22,7 +22,7 @@ public class deleteFile {
 		MongoDatabase myDatabase = mongoClient.getDatabase("myDatabase");
 		GridFSBucket gridFSBucket = GridFSBuckets.create(myDatabase);
 
-		ObjectId fileId =new ObjectId("files'ID");
+		ObjectId fileId =new ObjectId("fileID");
 		try {
 			gridFSBucket.delete(fileId);
 		}catch (Exception e) {
