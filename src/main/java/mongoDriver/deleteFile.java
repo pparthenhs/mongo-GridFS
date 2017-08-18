@@ -1,3 +1,5 @@
+package mongoDriver;
+
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.gridfs.GridFSBucket;
@@ -5,6 +7,11 @@ import com.mongodb.client.gridfs.GridFSBuckets;
 import org.bson.types.ObjectId;
 
 /**
+ * This class connect with the localhost mongo and with
+ * the database 'myDatabase'. Use the GridFS to delete a existing
+ * file using file id.
+ *
+ *
  * Created by parthenis on 17/08/2017.
  */
 public class deleteFile {
@@ -12,14 +19,14 @@ public class deleteFile {
 	public static void main(String args[]) {
 
 		MongoClient mongoClient = new MongoClient();
-		MongoDatabase myDatabase = mongoClient.getDatabase("mydb");
+		MongoDatabase myDatabase = mongoClient.getDatabase("myDatabase");
 		GridFSBucket gridFSBucket = GridFSBuckets.create(myDatabase);
 
-		ObjectId fileId =new ObjectId("59955f7053b56f4f603cc84e");
+		ObjectId fileId =new ObjectId("files'ID");
 		try {
 			gridFSBucket.delete(fileId);
 		}catch (Exception e) {
-			System.out.println("no id");
+			System.out.println("no existing ID");
 		}
 
 	}
